@@ -1,5 +1,10 @@
-// A React component that queries and displays data from Supabase
+import { useState } from 'react'
+import { createClient } from '@supabase/supabase-js';
+
 function Library() {
+  
+  const supabase = createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY);
+
   // The useState hook lets us store data in a component across renders
   // setMyBooks is a setter function that updates the state of myBooks
   const [myBooks, setMyBooks] = useState([]);
@@ -28,3 +33,5 @@ function Library() {
     </table>
   )
 }
+
+export default Library
